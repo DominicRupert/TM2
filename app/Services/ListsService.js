@@ -3,11 +3,14 @@ import { List } from "../Models/List.js";
 
 class ListsService {
   createList(listData) {
-    const list = new List(listData);
-    ProxyState.lists = [...ProxyState.lists, list];
+    console.log('service up', listData);
+    ProxyState.lists = [...ProxyState.lists, new List(listData)];
+   
   }
+
+
   deleteList(id) {
-    ProxyState.lists = ProxyState.lists.filter((list) => list.id !== id);
+    ProxyState.lists = ProxyState.lists.filter((l) => l.id !== id);
   }
 }
 
